@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================= -->
+<!--  EDIT YOUR DETAILS IN ONE PLACE: the CONFIG block in <script> -->
+<!--  (brand name, phone number, city, service area)              -->
+<!--  DROP REAL PHOTOS into merc-ambient/images/ :                 -->
+<!--    after.webp · before.webp · gallery-1.webp … gallery-6.webp -->
+<!--  They appear automatically; if a file is missing, a tasteful  -->
+<!--  placeholder shows instead. No code changes needed.           -->
+<!-- ============================================================= -->
+<title>Mercedes Ambient Lighting Install — Mary Esther, Fort Walton Beach &amp; Destin FL | AURA</title>
+<meta name="description" content="Professional Mercedes ambient lighting installation in Mary Esther, Fort Walton Beach, Destin &amp; Navarre FL. 64-color interior glow — doors, dash, footwells, illuminated vents &amp; rotating Burmester-style tweeters. Mobile install, fully reversible. Text a photo for a fast free quote.">
+<meta property="og:title" content="Mercedes Ambient Lighting Installs — Emerald Coast FL">
+<meta property="og:description" content="Turn your Mercedes interior into a 64-color glow. Mobile install, fully reversible. Text a photo for a free quote.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#06070B;            /* night black */
+    --bg-soft:#0C0E15;
+    --card:#11141D;
+    --card-2:#161A26;
+    --line:rgba(255,255,255,.09);
+    --text:#EAEDF6;
+    --dim:#9AA2B6;
+    --chrome:#C9D2DC;
+    /* the 64-color ambient glow — the whole brand */
+    --c1:#16E0C8;  /* cyan   */
+    --c2:#4C7BFF;  /* blue   */
+    --c3:#A455FF;  /* violet */
+    --c4:#FF5CA8;  /* magenta*/
+    --c5:#FF9D2E;  /* amber  */
+    --glow:linear-gradient(100deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5));
+    --radius:16px;
+    --shadow:0 24px 70px -28px rgba(0,0,0,.8);
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Sora',sans-serif;line-height:1.05;letter-spacing:-.02em;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{position:relative}
+  .eyebrow{font-weight:700;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;
+    background:var(--glow);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-weight:700;
+    font-size:1rem;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;
+    transition:transform .15s,box-shadow .2s,filter .2s;white-space:nowrap;font-family:'Inter'}
+  .btn:active{transform:translateY(1px)}
+  .btn-glow{background:var(--glow);background-size:200% 100%;color:#06070B;
+    box-shadow:0 14px 34px -12px rgba(164,85,255,.6);animation:shift 6s linear infinite}
+  .btn-glow:hover{filter:brightness(1.08)}
+  @keyframes shift{to{background-position:200% 0}}
+  .btn-ghost{background:rgba(255,255,255,.04);border:1.5px solid var(--line);color:#fff}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.07)}
+  :focus-visible{outline:3px solid var(--c3);outline-offset:2px;border-radius:6px}
+
+  /* ===== PROMO BAR ===== */
+  .promo{background:var(--glow);background-size:200% 100%;animation:shift 6s linear infinite;
+    color:#06070B;text-align:center;font-weight:600;font-size:.9rem;padding:9px 16px;line-height:1.4}
+  .promo b{font-weight:800}
+  .promo a{text-decoration:underline;font-weight:800;white-space:nowrap}
+
+  /* ===== TOP BAR ===== */
+  header.bar{position:sticky;top:0;z-index:60;background:rgba(6,7,11,.82);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .bar-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Sora';font-weight:800;font-size:1.32rem}
+  .logo .mark{width:36px;height:36px;border-radius:10px;background:var(--glow);background-size:200% 100%;
+    animation:shift 6s linear infinite;display:grid;place-items:center;color:#06070B;font-weight:800}
+  .logo small{display:block;font-family:'Inter';font-weight:500;font-size:.58rem;letter-spacing:.18em;
+    color:var(--dim);text-transform:uppercase;margin-top:-3px}
+  .bar .btn{padding:11px 20px;font-size:.95rem}
+  .bar-call{display:none;align-items:center;gap:8px;font-weight:700}
+  .bar-call svg{width:18px;height:18px}
+  @media(min-width:600px){.bar-call{display:flex}}
+
+  /* ===== HERO ===== */
+  .hero{overflow:hidden;padding:58px 0 64px}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(80% 60% at 88% -10%,rgba(76,123,255,.20),transparent 60%),
+              radial-gradient(70% 60% at 0% 110%,rgba(255,92,168,.14),transparent 60%)}
+  .hero-grid{position:relative;display:grid;gap:42px;grid-template-columns:1fr}
+  @media(min-width:940px){.hero-grid{grid-template-columns:1.05fr .95fr;align-items:center;gap:54px}}
+  .hero h1{font-size:clamp(2.4rem,6.4vw,4.1rem)}
+  .hero h1 .hl{background:var(--glow);background-size:200% 100%;-webkit-background-clip:text;
+    background-clip:text;color:transparent;animation:shift 6s linear infinite}
+  .hero p.sub{font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--chrome);margin:20px 0 26px;max-width:31em}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:13px}
+  .micro{display:flex;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:.86rem;margin-top:14px}
+  .micro span{display:flex;align-items:center;gap:7px}
+  .micro svg{width:15px;height:15px;color:var(--c1);flex:none}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:24px;color:var(--dim);font-size:.92rem;font-weight:500}
+  .hero-trust span{display:flex;align-items:center;gap:8px}
+  .hero-trust svg{width:18px;height:18px;flex:none}
+  .hero-trust .ic{color:var(--c1)}
+
+  /* ===== BEFORE / AFTER SLIDER ===== */
+  .ba{position:relative;width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);background:#05060A;user-select:none;touch-action:pan-y;border:1px solid var(--line)}
+  .ba-layer{position:absolute;inset:0}
+  .ba-after{z-index:1}
+  .ba-before{z-index:2;clip-path:inset(0 50% 0 0)}
+  .real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .ba-tag{position:absolute;top:12px;z-index:4;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+  .ba-tag.b{left:12px;background:rgba(6,7,11,.6);color:var(--chrome)}
+  .ba-tag.a{right:12px;background:rgba(164,85,255,.85);color:#fff}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;z-index:3;width:3px;background:#fff;
+    transform:translateX(-50%);box-shadow:0 0 16px rgba(0,0,0,.6)}
+  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;
+    border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.5);color:#06070B}
+  .ba-knob svg{width:24px;height:24px}
+  .ba-range{position:absolute;inset:0;z-index:5;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+  .ba-note{text-align:center;font-size:.82rem;color:var(--dim);margin-top:12px}
+
+  /* placeholder "interior" scenes — auto-hidden when a real photo is present */
+  .scene{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:1}
+  .scene .dash{position:absolute;inset:0;background:
+    radial-gradient(120% 80% at 50% 120%,#1a1f2b,transparent 60%),
+    linear-gradient(180deg,#0a0c12 0%,#0e1118 55%,#070910 100%)}
+  .scene .strip{position:absolute;left:8%;right:8%;height:3px;border-radius:3px;opacity:0;filter:blur(.3px)}
+  .scene .s1{top:46%}.scene .s2{top:62%;left:14%;right:30%}.scene .s3{top:74%;left:24%;right:12%}
+  .scene .vent{position:absolute;top:50%;width:54px;height:54px;border-radius:50%;
+    border:6px solid #14171f;box-shadow:inset 0 0 0 6px #0b0d13}
+  .scene .vL{left:16%}.scene .vR{right:16%}
+  .scene .wheel{position:absolute;left:50%;bottom:-22%;transform:translateX(-50%);width:60%;aspect-ratio:1;
+    border-radius:50%;border:20px solid #11141c;box-shadow:inset 0 0 40px #000}
+  .scene.after .strip{opacity:1}
+  .scene.after .s1{background:var(--c2);box-shadow:0 0 18px 2px var(--c2)}
+  .scene.after .s2{background:var(--c3);box-shadow:0 0 18px 2px var(--c3)}
+  .scene.after .s3{background:var(--c4);box-shadow:0 0 18px 2px var(--c4)}
+  .scene.after .vent{box-shadow:inset 0 0 0 6px #0b0d13,0 0 22px 3px var(--c1)}
+  .scene.after .dash{background:
+    radial-gradient(120% 80% at 50% 120%,rgba(76,123,255,.18),transparent 55%),
+    radial-gradient(80% 50% at 20% 60%,rgba(164,85,255,.14),transparent 60%),
+    linear-gradient(180deg,#0a0c12 0%,#0e1118 55%,#070910 100%)}
+
+  /* ===== SECTION SHELL ===== */
+  .band{padding:64px 0;border-top:1px solid var(--line)}
+  .band.alt{background:var(--bg-soft)}
+  .head{max-width:42rem;margin:0 auto 40px;text-align:center}
+  .head h2{font-size:clamp(1.9rem,4.2vw,2.7rem);margin:12px 0}
+  .head p{color:var(--dim);font-size:1.05rem}
+
+  /* ===== SOCIAL PROOF ===== */
+  .proof{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    max-width:330px;flex:1 1 270px}
+  .pcard .stars{color:#FFC23E;font-size:1rem;letter-spacing:2px}
+  .pcard p{font-size:.96rem;margin:9px 0 12px}
+  .pcard .who{color:var(--dim);font-size:.85rem;font-weight:600}
+  .stats{display:flex;flex-wrap:wrap;gap:16px 30px;justify-content:center;margin-top:34px}
+  .stat{text-align:center;min-width:110px}
+  .stat .b{font-family:'Sora';font-weight:800;font-size:1.9rem;background:var(--glow);
+    -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+  .stat .l{color:var(--dim);font-size:.85rem;margin-top:2px}
+
+  /* ===== PACKAGES ===== */
+  .anchor{max-width:40rem;margin:-6px auto 30px;text-align:center;color:var(--chrome);font-size:.98rem;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px}
+  .anchor b{background:var(--glow);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+  .tiers{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:780px){.tiers{grid-template-columns:repeat(3,1fr)}}
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;
+    display:flex;flex-direction:column;position:relative}
+  .tier.featured{border-color:transparent;background:
+    linear-gradient(var(--card),var(--card)) padding-box,var(--glow) border-box;
+    box-shadow:0 20px 50px -24px rgba(164,85,255,.5)}
+  .tier .pop{position:absolute;top:-12px;left:24px;background:var(--glow);color:#06070B;font-weight:700;
+    font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .tier h3{font-size:1.25rem;margin-bottom:4px}
+  .tier .price{font-family:'Sora';font-weight:800;font-size:2rem;margin:10px 0 2px}
+  .tier .price small{font-size:.8rem;color:var(--dim);font-weight:600}
+  .tier .desc{color:var(--dim);font-size:.94rem;margin-bottom:16px}
+  .tier ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px;flex:1}
+  .tier li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start}
+  .tier li svg{width:18px;height:18px;color:var(--c1);flex:none;margin-top:3px}
+  .tier .btn{width:100%}
+
+  /* ===== STEPS ===== */
+  .steps{display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px}
+  .step .n{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:'Sora';
+    font-weight:800;font-size:1.1rem;margin-bottom:14px;background:var(--glow);color:#06070B}
+  .step h3{font-size:1.15rem;margin-bottom:6px}
+  .step p{color:var(--dim);font-size:.95rem}
+
+  /* ===== GALLERY ===== */
+  .gal{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.gal{grid-template-columns:repeat(3,1fr)}}
+  .gal .cell{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{text-align:center}
+  .cta-band h2{font-size:clamp(1.7rem,4vw,2.5rem);margin-bottom:10px}
+  .cta-band p{color:var(--dim);margin:0 auto 24px;max-width:34rem}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:48rem;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .qa button{width:100%;text-align:left;background:none;border:0;color:var(--text);cursor:pointer;
+    padding:18px 20px;font-size:1.02rem;font-weight:600;font-family:'Inter';display:flex;
+    justify-content:space-between;align-items:center;gap:14px}
+  .qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--dim)}
+  .qa .a p{padding:0 20px 18px}
+  .qa.open .a{max-height:260px}
+  .qa .chev{transition:transform .3s;flex:none}
+  .qa.open .chev{transform:rotate(180deg)}
+
+  /* ===== LEAD FORM ===== */
+  .quote{background:linear-gradient(160deg,var(--card),var(--bg-soft));border:1px solid var(--line);
+    border-radius:22px;padding:34px clamp(22px,4vw,44px);max-width:640px;margin:0 auto;box-shadow:var(--shadow)}
+  .quote h2{font-size:clamp(1.7rem,3.6vw,2.3rem);text-align:center}
+  .quote p.s{color:var(--dim);text-align:center;margin:10px 0 24px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.85rem;font-weight:600;color:var(--chrome);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);
+    color:var(--text);padding:13px 15px;border-radius:11px;font-size:1rem;font-family:'Inter';outline:none;
+    transition:border .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--c3)}
+  .field textarea{resize:vertical;min-height:72px}
+  .row2{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:520px){.row2{grid-template-columns:1fr 1fr}}
+  .quote .btn{width:100%;margin-top:8px;font-size:1.08rem;padding:17px}
+  .quote .alt{text-align:center;margin-top:14px;color:var(--dim);font-size:.92rem}
+  .quote .alt a{font-weight:700;border-bottom:1px solid var(--line)}
+  .reassure{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;color:var(--dim);font-size:.82rem}
+  .reassure span{display:flex;align-items:center;gap:6px}
+  .reassure svg{width:14px;height:14px;color:var(--c1)}
+
+  /* ===== FOOTER ===== */
+  footer.ft{border-top:1px solid var(--line);padding:40px 0;color:var(--dim);font-size:.92rem}
+  .ft-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center}
+  .ft .area{max-width:34em}
+
+  /* ===== STICKY MOBILE CTA ===== */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(6,7,11,.92);
+    backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:10px}
+  .sticky .btn{flex:1;padding:14px}
+  @media(min-width:760px){.sticky{display:none}}
+  body{padding-bottom:78px}
+  @media(min-width:760px){body{padding-bottom:0}}
+
+  .mut{color:var(--dim)}
+  .center{text-align:center}
+</style>
+</head>
+<body>
+
+<div class="promo">🔥 <b>Founding-customer offer:</b> first 5 installs this month get <b>$100 off</b> + free footwell upgrade — <a href="#quote">claim a spot →</a></div>
+
+<header class="bar">
+  <div class="wrap bar-inner">
+    <a class="logo" href="#top">
+      <span class="mark">◐</span>
+      <span data-brand>AURA<small>Ambient Lighting Co.</small></span>
+    </a>
+    <a class="bar-call" data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><span data-phone>(850) 737-4302</span></a>
+    <a class="btn btn-glow" href="#quote">Get a Quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Mercedes ambient lighting · <span data-city>Mary Esther</span> &amp; the Emerald Coast</span>
+        <h1 style="margin-top:14px">The interior glow your Mercedes <span class="hl">should've come with.</span></h1>
+        <p class="sub">Professionally installed <strong>64-color ambient lighting</strong> — doors, dash, footwells, illuminated vents &amp; rotating Burmester-style tweeters. Factory look, fully reversible, done in a few hours. <strong>We come to you.</strong></p>
+        <div class="hero-cta">
+          <a class="btn btn-glow" href="#quote">Get my free quote →</a>
+          <a class="btn btn-ghost" href="#gallery">See the glow</a>
+        </div>
+        <div class="micro">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg> Free quote in minutes</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No obligation</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> Fast text-back</span>
+        </div>
+        <div class="hero-trust">
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Factory-integrated finish</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100% reversible</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> App + steering controls</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Workmanship warranty</span>
+        </div>
+      </div>
+
+      <!-- Before / After -->
+      <div>
+        <div class="ba" id="ba">
+          <div class="ba-layer ba-after">
+            <img class="real" src="images/after.webp" alt="Mercedes interior glowing with 64-color ambient lighting at night" onerror="this.remove()">
+            <div class="scene after"><div class="dash"></div><div class="vent vL"></div><div class="vent vR"></div><div class="strip s1"></div><div class="strip s2"></div><div class="strip s3"></div><div class="wheel"></div></div>
+            <span class="ba-tag a">After</span>
+          </div>
+          <div class="ba-layer ba-before" id="baBefore">
+            <img class="real" src="images/before.webp" alt="Mercedes interior before ambient lighting" onerror="this.remove()">
+            <div class="scene"><div class="dash"></div><div class="vent vL"></div><div class="vent vR"></div><div class="strip s1"></div><div class="strip s2"></div><div class="strip s3"></div><div class="wheel"></div></div>
+            <span class="ba-tag b">Before</span>
+          </div>
+          <div class="ba-handle" id="baHandle"><div class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18-6-6 6-6"/><path d="m15 6 6 6-6 6"/></svg></div></div>
+          <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+        </div>
+        <p class="ba-note">← Drag to compare. Real night shots from your installs show here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Why owners book it</span>
+        <h2>Built to look like it came that way</h2>
+      </div>
+      <!-- When you have REAL customer reviews, swap these benefit cards for real quotes (with names/cars). -->
+      <div class="proof">
+        <div class="pcard"><div class="stars">✦</div><p><b>Looks factory.</b> Hidden wiring, no cutting — it reads like a built-in option, not an aftermarket add-on.</p><div class="who">Factory-clean finish</div></div>
+        <div class="pcard"><div class="stars">✦</div><p><b>64 colors, your way.</b> Set the mood from an app — zones, brightness, even the steering wheel on supported cars.</p><div class="who">Full control</div></div>
+        <div class="pcard"><div class="stars">✦</div><p><b>Zero risk.</b> 100% reversible, workmanship warranty, and a fixed quote before any work starts.</p><div class="who">Peace of mind</div></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="b">3–5 hr</div><div class="l">Typical install</div></div>
+        <div class="stat"><div class="b">64</div><div class="l">Colors to choose</div></div>
+        <div class="stat"><div class="b">100%</div><div class="l">Reversible</div></div>
+        <div class="stat"><div class="b">Mobile</div><div class="l">We come to you</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="band alt" id="packages">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Packages</span>
+        <h2>Pick your glow</h2>
+        <p>Every Mercedes is different — final quote depends on your model &amp; year. These are starting points.</p>
+      </div>
+      <p class="anchor">💡 Optioning this from the factory runs into the <b>thousands</b> — and most W205/W253 owners can't add it at all. Full 64-color 4D ambient, professionally installed, from <b>$1,295</b> — or start with door + footwell glow from <b>$399</b>.</p>
+      <div class="tiers">
+        <div class="tier">
+          <h3>Ambient Starter</h3>
+          <div class="price">$399<small> / starting</small></div>
+          <p class="desc">Dip into the glow — door, center-console &amp; footwell ambient lighting that fades on with the doors.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Doors + center console + footwells</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Door-trigger fade in/out</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 64 colors, app controlled</li>
+          </ul>
+          <a class="btn btn-ghost" href="#quote">Get quote</a>
+        </div>
+        <div class="tier featured">
+          <span class="pop">Most popular</span>
+          <h3>Full 4D Ambient</h3>
+          <div class="price">$1,295<small> / starting</small></div>
+          <p class="desc">The full transformation — the complete 64-color 4D kit wrapping the whole cabin, app + steering-wheel controlled.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Doors, dash, console + footwells</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Illuminated air vents</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 64 colors, zones &amp; brightness</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> App + steering-wheel control</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Hidden wiring, factory finish</li>
+          </ul>
+          <a class="btn btn-glow" href="#quote">Get quote</a>
+        </div>
+        <div class="tier">
+          <h3>Signature Showpiece</h3>
+          <div class="price">$2,295<small> / starting</small></div>
+          <p class="desc">The Burmester-style flagship — full 4D ambient plus rotating illuminated tweeters &amp; turbine vents.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Full 4D Ambient</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 3D rotating illuminated tweeters</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Turbine-style illuminated vents</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> The interior people film</li>
+          </ul>
+          <a class="btn btn-ghost" href="#quote">Get quote</a>
+        </div>
+      </div>
+      <div class="head" style="margin:36px auto 0"><span class="eyebrow">Popular add-ons — mix onto any package</span></div>
+      <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px">
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>Seat-back lights</b> · from $169</li>
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>Illuminated vents</b> · from $399</li>
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>Turbine-style vents</b> · from $449</li>
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>3D rotating tweeters</b> · from $549</li>
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>4D rotating speakers</b> · from $1,149</li>
+        <li style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.9rem"><b>Midrange speaker covers</b> · from $279</li>
+      </ul>
+      <p class="center mut" style="margin-top:22px;font-size:.92rem">Not sure which fits? <a data-tel href="#" style="color:var(--text);border-bottom:1px solid var(--line);font-weight:600">Text a photo of your interior</a> and we'll tell you exactly what's possible + an honest price.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">How it works</span>
+        <h2>From dull to glowing in 3 steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Text us a photo</h3><p>Send a pic of your interior + your model and year. We confirm what's possible and send a fixed quote — no guessing.</p></div>
+        <div class="step"><div class="n">2</div><h3>Book your slot</h3><p>Pick a time. We come to you (or you drop by). Most installs are done in 3–5 hours while you carry on with your day.</p></div>
+        <div class="step"><div class="n">3</div><h3>Drive it at night</h3><p>Wait for dusk, open the app, and watch your cabin come alive. Reversible, warrantied, and built to look factory.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="band alt" id="gallery">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">The work</span>
+        <h2>Recent installs</h2>
+        <p>Drop your real night shots into <code>images/</code> (gallery-1.webp … gallery-6.webp) and they appear here.</p>
+      </div>
+      <div class="gal">
+        <div class="cell"><img class="real" src="images/gallery-1.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="strip s1"></div><div class="strip s2"></div><div class="strip s3"></div></div></div>
+        <div class="cell"><img class="real" src="images/gallery-2.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="vent vL"></div><div class="vent vR"></div><div class="strip s1" style="background:var(--c1);box-shadow:0 0 18px 2px var(--c1)"></div><div class="strip s2"></div></div></div>
+        <div class="cell"><img class="real" src="images/gallery-3.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="strip s1" style="background:var(--c5);box-shadow:0 0 18px 2px var(--c5)"></div><div class="strip s2" style="background:var(--c5);box-shadow:0 0 18px 2px var(--c5)"></div><div class="strip s3" style="background:var(--c5);box-shadow:0 0 18px 2px var(--c5)"></div></div></div>
+        <div class="cell"><img class="real" src="images/gallery-4.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="vent vL"></div><div class="vent vR"></div><div class="strip s2"></div><div class="strip s3"></div></div></div>
+        <div class="cell"><img class="real" src="images/gallery-5.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="strip s1" style="background:var(--c4);box-shadow:0 0 18px 2px var(--c4)"></div><div class="strip s3" style="background:var(--c4);box-shadow:0 0 18px 2px var(--c4)"></div></div></div>
+        <div class="cell"><img class="real" src="images/gallery-6.webp" alt="Mercedes ambient lighting install" onerror="this.remove()"><div class="scene after"><div class="dash"></div><div class="vent vL"></div><div class="vent vR"></div><div class="strip s1"></div><div class="strip s2"></div><div class="strip s3"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <section class="band cta-band">
+    <div class="wrap">
+      <h2>Ready to see your Mercedes glow?</h2>
+      <p>Text a photo of your interior and get a free, honest quote in minutes. Founding-customer pricing is live right now.</p>
+      <a class="btn btn-glow" href="#quote">Get my free quote →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band alt">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Good questions</span><h2>Before you book</h2></div>
+      <div class="faq" id="faq">
+        <div class="qa"><button>Will this damage my car or void my warranty?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>No. We tap into existing circuits cleanly, hide all wiring, and the install is fully reversible — it can be removed with no trace. We never cut into anything structural.</p></div></div>
+        <div class="qa"><button>How long does an install take?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>Footwell kits are about an hour. A full ambient retrofit is typically 3–5 hours. Starlight headliners take longer and are quoted per car.</p></div></div>
+        <div class="qa"><button>Does it work on my Mercedes model?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>Almost certainly — we've fitted ambient lighting across C, E, S, GLC, GLE, CLA, A-Class and more. Text your model and year and we'll confirm in minutes.</p></div></div>
+        <div class="qa"><button>Can I control the colors?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>Yes. The Full Ambient package gives you 64 colors, brightness, and zones from an app — and on supported cars, straight from your steering wheel and screen.</p></div></div>
+        <div class="qa"><button>Do you come to me?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>Yes — mobile install across <span data-area>the local area</span>. We bring everything we need; you just need a flat spot to park.</p></div></div>
+        <div class="qa"><button>How much does it cost?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="a"><p>Ambient Starter (door/console/footwell) from $399, Full 4D Ambient from $1,295, Signature Showpiece from $2,295. Add-ons like rotating tweeters and illuminated vents start at $169. Final price depends on your model &amp; year — text a photo for an exact, no-obligation quote.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE / LEAD FORM -->
+  <section class="band" id="quote">
+    <div class="wrap">
+      <div class="quote">
+        <span class="eyebrow center" style="display:block">Free quote</span>
+        <h2>Get your glow quote</h2>
+        <p class="s">Send the details and we'll text you back fast with exactly what's possible and a price. No spam, no pressure.</p>
+        <form id="leadForm">
+          <div class="row2">
+            <div class="field"><label>Your name</label><input name="name" required placeholder="First name"></div>
+            <div class="field"><label>Phone</label><input name="phone" required inputmode="tel" placeholder="Best number to text"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label>Mercedes model</label><input name="model" required placeholder="e.g. C300, GLC, A-Class"></div>
+            <div class="field"><label>Year</label><input name="year" inputmode="numeric" placeholder="e.g. 2021"></div>
+          </div>
+          <div class="field"><label>Which package?</label>
+            <select name="package">
+              <option>Full 4D Ambient (most popular)</option>
+              <option>Ambient Starter</option>
+              <option>Signature Showpiece</option>
+              <option>Add-ons (tweeters / speakers / vents)</option>
+              <option>Not sure — recommend something</option>
+            </select>
+          </div>
+          <div class="field"><label>Anything else?</label><textarea name="notes" placeholder="Colors you want, questions, when you're free…"></textarea></div>
+          <button class="btn btn-glow" type="submit">Text me my quote →</button>
+          <div class="reassure">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Replies within ~15 min</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No obligation</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Local &amp; mobile</span>
+          </div>
+          <p class="alt">Prefer to talk now? <a data-tel href="#">Call or text <span data-phone>(850) 737-4302</span></a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-grid">
+    <div class="logo"><span class="mark">◐</span><span data-brand>AURA<small>Ambient Lighting Co.</small></span></div>
+    <p class="area">Mercedes ambient lighting installation serving <span data-area>Mary Esther &amp; surrounding areas</span>. Mobile service available. © <span id="yr"></span> <span data-brandtext>AURA Ambient Lighting Co.</span></p>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky">
+  <a class="btn btn-ghost" data-tel href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> Call</a>
+  <a class="btn btn-glow" href="#quote">Get a Quote</a>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ============================================================= */
+  /*  ⚙️  CONFIG — change these and the whole site updates          */
+  /* ============================================================= */
+  const CONFIG = {
+    brand:   "AURA",                       // your business name (rename anytime)
+    tagline: "Ambient Lighting Co.",       // small text under the name
+    phone:   "(850) 737-4302",             // shown on the page
+    phoneRaw:"+18507374302",               // used for tel:/sms: links (no spaces)
+    city:    "Mary Esther",                // your home city
+    area:    "Mary Esther, Fort Walton Beach, Destin, Navarre & all surrounding areas",
+  };
+  /* ============================================================= */
+
+  const set = (sel, fn) => document.querySelectorAll(sel).forEach(fn);
+  set('[data-brand]', el => { if (el.childNodes[0]) el.childNodes[0].textContent = CONFIG.brand; });
+  set('[data-brand] small', el => el.textContent = CONFIG.tagline);
+  set('[data-brandtext]', el => el.textContent = CONFIG.brand + " " + CONFIG.tagline);
+  set('[data-phone]', el => el.textContent = CONFIG.phone);
+  set('[data-city]',  el => el.textContent = CONFIG.city);
+  set('[data-area]',  el => el.textContent = CONFIG.area);
+  set('[data-tel]',   el => el.setAttribute('href', 'tel:' + CONFIG.phoneRaw));
+  const yr = document.getElementById('yr'); if (yr) yr.textContent = "2026";
+
+  // ---------- Before/After slider ----------
+  const ba = document.getElementById('ba');
+  if (ba) {
+    const before = document.getElementById('baBefore');
+    const handle = document.getElementById('baHandle');
+    const range  = document.getElementById('baRange');
+    const move = v => {
+      before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+      handle.style.left = v + '%';
+    };
+    range.addEventListener('input', e => move(+e.target.value));
+    move(50);
+  }
+
+  // ---------- FAQ accordion ----------
+  document.querySelectorAll('#faq .qa button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const qa = btn.parentElement;
+      const open = qa.classList.contains('open');
+      document.querySelectorAll('#faq .qa').forEach(x => x.classList.remove('open'));
+      if (!open) qa.classList.add('open');
+    });
+  });
+
+  // ---------- Lead form → pre-filled text straight to your phone ----------
+  const form = document.getElementById('leadForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(form).entries());
+      const msg =
+        `New quote request%0a` +
+        `Name: ${d.name}%0a` +
+        `Phone: ${d.phone}%0a` +
+        `Car: ${d.model} ${d.year || ''}%0a` +
+        `Package: ${d.package}%0a` +
+        `Notes: ${d.notes || '-'}`;
+      window.location.href = `sms:${CONFIG.phoneRaw}?&body=${msg}`;
+    });
+  }
+})();
+</script>
+</body>
+</html>
