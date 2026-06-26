@@ -1,3 +1,9 @@
 CONTENT-PACK.md
 images/README.txt
 _ref/
+
+# build / deps
+node_modules/
+dist/
+.vite/
+*.log
